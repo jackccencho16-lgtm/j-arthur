@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="logoTitle">
+    <title id="logoTitle">J. ARTHUR CCENCHO</title>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 5 9 25c-.3 3.2-4.5 3.2-4.5 0" stroke="#12bd92" stroke-width="2.5"/>
+        <path d="M17 5 25 25" stroke="#4fc3f7" stroke-width="2.5"/>
+        <path d="M13 17h8" stroke="#4fc3f7" stroke-width="2.5"/>
+    </g>
+    <circle cx="17" cy="5" r="1.6" fill="#12bd92"/>
+    <circle cx="25" cy="25" r="1.4" fill="#4fc3f7"/>
+</svg>

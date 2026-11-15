@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel fotográfico de obra de J. ARTHUR CCENCHO: organiza fotos por panel, registra metadatos y exporta reportes en PDF o Word.">
+    <meta name="theme-color" content="#0d0f0e">
+    <title>Panel fotográfico | J. ARTHUR CCENCHO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="panel-fotos.css">
+    <link rel="stylesheet" href="mascota.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/docx@9.15.3/dist/index.umd.cjs"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor header-contenido">
+            <a href="index.html" class="marca" aria-label="J. ARTHUR CCENCHO, inicio">
+                <span class="marca-icono"><img src="perfil-jarthur.jpg" alt="J. Arthur Ccencho" width="24" height="24"></span>
+                <span class="marca-texto"><span class="marca-nombre">J. ARTHUR <span class="acento">CCENCHO</span></span><small>Panel fotográfico</small></span>
+            </a>
+            <nav class="nav" id="nav" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="panel-fotos.html" class="activo">Panel fotográfico</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <section id="paneles">
+            <h2>Paneles de Obra</h2>
+            <div class="paneles-form">
+                <input type="text" id="nombre-panel" placeholder="Nombre del panel (ej. Obra A - Fase 1)">
+                <button id="btn-nuevo-panel" class="boton">+ Nuevo Panel</button>
+            </div>
+            <div id="lista-paneles" class="paneles-lista"></div>
+        </section>
+
+        <section id="galeria">
+            <h2>Galeria</h2>
+            <div id="subida">
+                <input type="file" id="input-fotos" accept="image/*" multiple>
+                <button id="btn-subir" class="boton">Subir Fotos</button>
+            </div>
+            <div id="galeria-grid" class="galeria-grid"></div>
+        </section>
+
+        <section id="reporte">
+            <h2>Reporte</h2>
+            <div id="reporte-content">
+                <h3 id="rep-titulo">Reporte de Obra</h3>
+                <p id="rep-panel"></p>
+                <div id="rep-fotos"></div>
+            </div>
+            <div class="reporte-botones">
+                <button id="btn-pdf" class="boton">Generar PDF</button>
+                <button id="btn-word" class="boton">Generar Word</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <p>&copy; <span id="ano"></span> J. ARTHUR CCENCHO. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="panel-fotos.js"></script>
+    <script src="mascota-spider.js"></script>
+</body>
+</html>
