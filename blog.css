@@ -1,0 +1,1106 @@
+/* ===== Blog romántico: Artur & Tathi =====
+   Estado inicial: tema oscuro del sitio.
+   Estado desbloqueado (clase .desbloqueado en main): temática romántica. */
+
+:root {
+    --rosa: #e75480;
+    --rosa-suave: #f8b7c8;
+    --vino: #b23a5e;
+    --vino-oscuro: #8e2b48;
+    --crema: #fff9f5;
+    --crema-textura: #fdf1ea;
+    --tinta: #5c3a44;
+    --tinta-suave: #8a6570;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* ============ ESTADO OSCURO (antes de entrar) ============ */
+
+.blog-acceso {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 2.2rem 1.8rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--glow-sm);
+    text-align: center;
+    animation: aparecer .7s var(--ease, ease) both;
+}
+
+.blog-acceso-icono {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .03);
+    color: var(--celeste);
+}
+
+.blog-acceso-icono svg {
+    width: 26px;
+    height: 26px;
+}
+
+.blog-acceso-titulo {
+    margin-top: 1.1rem;
+    font-size: 1.35rem;
+}
+
+.blog-acceso-texto {
+    margin-top: .45rem;
+    color: var(--muted);
+    font-size: .85rem;
+    line-height: 1.6;
+}
+
+.blog-acceso form {
+    margin-top: 1.4rem;
+    text-align: left;
+}
+
+.blog-campo {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.blog-campo label {
+    color: var(--muted);
+    font-size: .72rem;
+    font-weight: 500;
+}
+
+.blog-campo input {
+    width: 100%;
+    padding: .7rem .85rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, .025);
+    color: var(--text);
+    font-size: .88rem;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.blog-campo input::placeholder {
+    color: #55655d;
+}
+
+.blog-campo input:focus {
+    outline: none;
+    border-color: var(--celeste);
+    background: #050807;
+    box-shadow: var(--glow-sm);
+}
+
+.blog-campo .error {
+    min-height: 1.15em;
+    margin-top: .3rem;
+    color: var(--danger);
+    font-size: .72rem;
+    line-height: 1.4;
+}
+
+.blog-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    width: 100%;
+    margin-top: 1rem;
+    padding: .8rem 1.4rem;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: var(--accent);
+    color: var(--bg);
+    font-size: .84rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .25s var(--ease, ease), box-shadow .25s, filter .2s;
+}
+
+.blog-boton svg {
+    width: 16px;
+    height: 16px;
+}
+
+.blog-boton:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-sm);
+    filter: brightness(1.06);
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ============ ESTADO ROMÁNTICO (.desbloqueado) ============ */
+
+.desbloqueado {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(900px 480px at 12% 8%, rgba(248, 183, 200, .35), transparent 60%),
+        radial-gradient(760px 520px at 88% 30%, rgba(255, 214, 224, .4), transparent 62%),
+        radial-gradient(700px 500px at 50% 95%, rgba(255, 190, 205, .28), transparent 60%),
+        var(--crema);
+    color: var(--tinta);
+}
+
+.desbloqueado::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(178, 58, 94, .05) 1px, transparent 1.4px),
+        radial-gradient(rgba(255, 255, 255, .8) 1px, transparent 1.4px);
+    background-size: 26px 26px, 17px 17px;
+    background-position: 0 0, 9px 13px;
+    pointer-events: none;
+}
+
+.desbloqueado section {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Corazones flotantes de fondo --- */
+
+.corazones-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.corazones-fondo span {
+    position: absolute;
+    bottom: -50px;
+    left: var(--x, 50%);
+    color: rgba(231, 84, 128, var(--o, .4));
+    font-size: var(--s, 1.2rem);
+    opacity: 0;
+    animation: corazon-subir var(--d, 10s) linear var(--delay, 0s) infinite;
+}
+
+@keyframes corazon-subir {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: var(--o, .4);
+    }
+
+    85% {
+        opacity: var(--o, .4);
+    }
+
+    100% {
+        transform: translateY(-108vh) rotate(var(--rot, 18deg)) scale(1.15);
+        opacity: 0;
+    }
+}
+
+/* --- Explosión de corazones al desbloquear --- */
+
+.corazones-burst {
+    position: fixed;
+    left: 50%;
+    top: 45%;
+    z-index: 300;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.corazones-burst span {
+    position: absolute;
+    color: var(--rosa);
+    font-size: var(--s, 1.4rem);
+    text-shadow: 0 4px 14px rgba(194, 24, 91, .45);
+    opacity: 0;
+    animation: corazon-burst var(--d, 1.3s) cubic-bezier(.17, .67, .35, 1) forwards;
+}
+
+@keyframes corazon-burst {
+    0% {
+        transform: translate(-50%, -50%) scale(.3) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(calc(-50% + var(--tx, 0px)), calc(-50% + var(--ty, -120px))) scale(1.1) rotate(var(--rot, 20deg));
+        opacity: 0;
+    }
+}
+
+/* --- Hero romántico --- */
+
+.hero-romantico {
+    padding: 4.2rem 0 2.6rem;
+    text-align: center;
+}
+
+.blog-hero-corazones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    font-weight: 700;
+    color: var(--vino);
+    text-shadow: 0 2px 10px rgba(231, 84, 128, .25);
+    margin-bottom: 1.2rem;
+}
+
+.blog-hero-corazones span {
+    display: inline-block;
+    animation: letra-flotar 3.4s ease-in-out infinite;
+}
+
+.blog-hero-corazones span:last-child {
+    animation-delay: 1.7s;
+}
+
+@keyframes letra-flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.blog-hero-corazones b {
+    color: var(--rosa);
+    font-size: clamp(1.4rem, 3.6vw, 2rem);
+    animation: corazon-latir 1.5s ease-in-out infinite;
+}
+
+.blog-etiqueta {
+    display: inline-block;
+    margin-bottom: 1.1rem;
+    padding: .45rem 1.1rem;
+    border: 1px solid rgba(231, 84, 128, .3);
+    border-radius: 999px;
+    background: rgba(231, 84, 128, .1);
+    color: var(--vino);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.blog-etiqueta::before {
+    background: var(--rosa);
+    box-shadow: 0 0 8px rgba(231, 84, 128, .8);
+}
+
+.blog-titulo {
+    font-family: "Dancing Script", cursive;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: var(--vino-oscuro);
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.15;
+    text-shadow: 0 3px 16px rgba(231, 84, 128, .18);
+}
+
+.blog-titulo-mediano {
+    font-size: clamp(2rem, 5vw, 3.1rem);
+}
+
+.blog-titulo .destello {
+    display: inline-block;
+    color: var(--rosa);
+    font-size: .45em;
+    vertical-align: middle;
+    margin: 0 .9rem;
+    text-shadow: 0 0 14px rgba(231, 84, 128, .9);
+    animation: destello-brillo 2.6s ease-in-out infinite;
+}
+
+.blog-titulo .destello.der {
+    animation-delay: 1.3s;
+}
+
+@keyframes destello-brillo {
+
+    0%,
+    100% {
+        opacity: .35;
+        transform: scale(.82) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.12) rotate(18deg);
+    }
+}
+
+.blog-dedicacion {
+    margin-top: .6rem;
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    font-weight: 500;
+    color: var(--rosa);
+}
+
+.blog-subtexto {
+    max-width: 560px;
+    margin: .9rem auto 0;
+    color: var(--tinta-suave);
+    font-size: .95rem;
+    line-height: 1.7;
+}
+
+/* --- Insignia del aniversario (cada 12 del mes) --- */
+
+.aniversario {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    max-width: 380px;
+    margin-top: 1.4rem;
+    padding: .8rem 1.3rem;
+    border: 1.5px solid rgba(231, 84, 128, .35);
+    border-radius: 16px;
+    background: linear-gradient(120deg, rgba(255, 214, 224, .55), rgba(255, 243, 239, .85));
+    box-shadow: 0 12px 30px rgba(231, 84, 128, .16);
+    text-align: left;
+    animation: aparecer .8s var(--ease, ease) .2s backwards;
+}
+
+.aniversario-corazon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.15rem;
+    background: radial-gradient(circle at 35% 28%, #ff7d95, #c2185b 75%);
+    box-shadow:
+        0 8px 18px rgba(194, 24, 91, .4),
+        inset 0 3px 7px rgba(255, 255, 255, .35);
+    animation: corazon-latir 1.6s ease-in-out infinite;
+}
+
+.aniversario-texto {
+    display: flex;
+    flex-direction: column;
+    gap: .15rem;
+}
+
+.aniversario-texto strong {
+    color: var(--vino-oscuro);
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+.aniversario-texto span {
+    color: var(--tinta-suave);
+    font-size: .76rem;
+}
+
+.aniversario.hoy {
+    border-color: rgba(255, 170, 60, .65);
+    background: linear-gradient(120deg, rgba(255, 224, 178, .6), rgba(255, 243, 239, .9));
+    box-shadow: 0 12px 34px rgba(255, 150, 60, .28);
+}
+
+.aniversario.hoy .aniversario-corazon {
+    background: radial-gradient(circle at 35% 28%, #ffd36b, #e0661f 75%);
+}
+
+.frase-romantica {
+    max-width: 520px;
+    margin: 1.1rem auto 0;
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--rosa);
+    line-height: 1.45;
+    animation: aparecer .8s var(--ease, ease) .4s backwards;
+}
+
+.guirnalda {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-top: 2.2rem;
+    font-size: 1.05rem;
+    color: var(--rosa);
+}
+
+.guirnalda span {
+    animation: corazon-latir 1.8s ease-in-out infinite;
+    opacity: .85;
+    filter: drop-shadow(0 4px 8px rgba(231, 84, 128, .35));
+}
+
+.guirnalda span:nth-child(2n) {
+    animation-delay: .45s;
+    transform: translateY(4px) rotate(8deg);
+}
+
+.guirnalda span:nth-child(3n) {
+    animation-delay: .9s;
+    transform: translateY(-2px) rotate(-8deg);
+    color: var(--vino);
+}
+
+@keyframes corazon-latir {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    12% {
+        transform: scale(1.14);
+    }
+
+    24% {
+        transform: scale(1);
+    }
+
+    36% {
+        transform: scale(1.1);
+    }
+
+    48% {
+        transform: scale(1);
+    }
+}
+
+/* --- Álbum desbloqueado --- */
+
+.blog-seccion {
+    padding: 1rem 0 4.5rem;
+}
+
+.blog-album {
+    animation: aparecer .8s var(--ease, ease) both;
+}
+
+.blog-album-cabecera {
+    text-align: center;
+}
+
+.corazon-latido {
+    display: inline-block;
+    color: var(--rosa);
+    font-size: .55em;
+    vertical-align: middle;
+    margin: 0 .5rem;
+    animation: corazon-latir 1.6s ease-in-out infinite;
+}
+
+/* --- Polaroids --- */
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.9rem 1.3rem;
+    margin-top: 2.6rem;
+}
+
+.album-item {
+    position: relative;
+    margin: 14px 6px 4px;
+    padding: 12px 12px 62px;
+    border: none;
+    border-radius: 4px;
+    background: #fffdfb;
+    box-shadow:
+        0 18px 40px rgba(178, 58, 94, .16),
+        0 4px 10px rgba(178, 58, 94, .08);
+    cursor: zoom-in;
+    transform: rotate(var(--r, -2deg));
+    animation:
+        balanceo-polaroid 5.2s ease-in-out infinite alternate,
+        aparecer .7s var(--ease, ease) backwards;
+    transition: box-shadow .3s, filter .3s;
+}
+
+.album-item:nth-child(odd) {
+    --r: -2.4deg;
+    --rs: 1.6deg;
+}
+
+.album-item:nth-child(even) {
+    --r: 2deg;
+    --rs: -1.4deg;
+}
+
+.album-item:nth-child(3n) {
+    animation-delay: .12s, .08s;
+}
+
+.album-item:nth-child(4n) {
+    animation-delay: .24s, .16s;
+}
+
+.album-item:nth-child(5n) {
+    animation-delay: .36s, .24s;
+}
+
+.album-item:nth-child(6n) {
+    animation-delay: .48s, .32s;
+}
+
+.album-item:nth-child(7n) {
+    animation-delay: .6s, .4s;
+}
+
+@keyframes balanceo-polaroid {
+    from {
+        transform: rotate(var(--r, -2deg)) translateY(0);
+    }
+
+    to {
+        transform: rotate(var(--rs, 1.6deg)) translateY(-7px);
+    }
+}
+
+.album-item::before {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    width: 92px;
+    height: 27px;
+    transform: translateX(-50%) rotate(-4deg);
+    background: linear-gradient(180deg, rgba(255, 214, 224, .9), rgba(231, 84, 128, .6));
+    border-radius: 2px;
+    box-shadow: 0 3px 8px rgba(178, 58, 94, .2);
+    opacity: .88;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.album-item:nth-child(even)::before {
+    transform: translateX(-50%) rotate(3.5deg);
+}
+
+.album-item:hover {
+    filter: brightness(1.02);
+    box-shadow:
+        0 28px 56px rgba(178, 58, 94, .24),
+        0 6px 14px rgba(178, 58, 94, .12);
+    z-index: 3;
+}
+
+.album-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 2px;
+    background: var(--crema-textura);
+    transition: transform .5s var(--ease, ease);
+}
+
+.album-item:hover img {
+    transform: scale(1.045);
+}
+
+.album-item figcaption {
+    position: absolute;
+    inset: auto 0 10px 0;
+    padding: 0 .7rem;
+    color: var(--vino);
+    font-family: "Dancing Script", cursive;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.22;
+    text-align: center;
+    letter-spacing: 0;
+    text-transform: none;
+    background: none;
+    pointer-events: none;
+}
+
+.firma-album {
+    margin-top: 2.6rem;
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(1.5rem, 3.4vw, 1.9rem);
+    font-weight: 700;
+    color: var(--vino-oscuro);
+    text-align: center;
+}
+
+.firma-album span {
+    color: var(--rosa);
+}
+
+.firma-album small {
+    display: block;
+    margin-top: .2rem;
+    font-size: .65em;
+    font-weight: 500;
+    color: var(--tinta-suave);
+}
+
+.blog-salir {
+    margin-top: 2.4rem;
+    text-align: center;
+}
+
+/* Botón fantasma romántico (solo existe tras desbloquear) */
+
+.blog-boton-suave {
+    width: auto;
+    padding: .7rem 1.5rem;
+    background: transparent;
+    color: var(--vino);
+    border: 1.5px solid rgba(231, 84, 128, .4);
+    box-shadow: none;
+}
+
+.blog-boton-suave:hover {
+    background: rgba(231, 84, 128, .08);
+    box-shadow: none;
+}
+
+/* --- Lightbox romántico --- */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    padding: 1.2rem;
+    background: rgba(72, 12, 30, .88);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox-marco {
+    position: relative;
+    max-width: min(84vw, 1100px);
+    padding: 14px 14px 66px;
+    margin: 0;
+    border-radius: 6px;
+    background: linear-gradient(160deg, #fffdfb, #fff3ef);
+    box-shadow:
+        0 30px 80px rgba(20, 2, 8, .6),
+        0 0 60px rgba(231, 84, 128, .25);
+    animation: aparecer .45s var(--ease, ease) both;
+}
+
+.lightbox-corazones {
+    position: absolute;
+    top: -16px;
+    left: -20px;
+    color: var(--rosa);
+    font-size: 1.4rem;
+    letter-spacing: .2rem;
+    transform: rotate(-12deg);
+    text-shadow: 0 4px 12px rgba(194, 24, 91, .5);
+    pointer-events: none;
+}
+
+.lightbox-marco img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 3px;
+    object-fit: contain;
+    background: var(--crema-textura);
+}
+
+.lightbox-pie {
+    margin-top: .9rem;
+    color: var(--vino);
+    font-family: "Dancing Script", cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.lightbox button {
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1.5px solid rgba(231, 84, 128, .45);
+    border-radius: 50%;
+    background: rgba(255, 249, 245, .92);
+    color: var(--vino);
+    cursor: pointer;
+    transition: color .2s, background .2s, box-shadow .2s, transform .2s;
+}
+
+.lightbox button:hover {
+    color: #fff;
+    background: var(--rosa);
+    box-shadow: 0 10px 24px rgba(231, 84, 128, .45);
+    transform: scale(1.06);
+}
+
+.lightbox-cerrar {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
+    width: 42px;
+    height: 42px;
+}
+
+.lightbox-cerrar svg {
+    width: 18px;
+    height: 18px;
+}
+
+.lightbox-flecha {
+    flex: 0 0 auto;
+    width: 46px;
+    height: 46px;
+    font-size: 1.8rem;
+    line-height: 1;
+    padding-bottom: .3rem;
+}
+
+/* ============ HORARIO DE CLASES (visible sin contraseña) ============ */
+
+.horario-seccion {
+    position: relative;
+    z-index: 1;
+    padding: 3.5rem 0 4.5rem;
+}
+
+.horario-cabecera {
+    max-width: 680px;
+    margin: 0 0 2rem;
+}
+
+.horario-cabecera h2 {
+    margin: 0 0 .5rem;
+    font-size: clamp(1.45rem, 2.8vw, 1.9rem);
+    text-wrap: balance;
+}
+
+.horario-cabecera p {
+    color: var(--muted);
+    font-size: .87rem;
+    line-height: 1.6;
+}
+
+.horario-scroll {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--glow-sm);
+    overflow-x: auto;
+}
+
+.horario-tabla {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    font-size: .74rem;
+}
+
+.horario-tabla thead th {
+    padding: .8rem .55rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(79, 195, 247, .06);
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+.horario-tabla tbody th,
+.horario-tabla tbody td {
+    padding: .5rem .45rem;
+    border: 1px solid rgba(79, 195, 247, .14);
+    vertical-align: middle;
+    text-align: center;
+}
+
+.horario-tabla tbody th {
+    width: 68px;
+    padding: .45rem .3rem;
+    background: rgba(255, 255, 255, .02);
+    color: var(--muted);
+    font-family: var(--font-heading);
+    font-size: .68rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.horario-tabla td:not(:empty) {
+    transition: filter .2s;
+}
+
+.horario-tabla td:not(:empty):hover {
+    filter: brightness(1.25);
+}
+
+.curso-sigla,
+.curso-aula {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: .64rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    opacity: .8;
+}
+
+.curso-nombre {
+    display: block;
+    margin: .15rem 0;
+    font-size: .72rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Colores de cursos (original de la imagen, adaptado al tema oscuro) */
+
+.curso-curso-gris {
+    background: rgba(160, 174, 178, .16);
+    box-shadow: inset 0 0 0 1.5px rgba(160, 174, 178, .55);
+    color: #dfe7e9;
+}
+
+.curso-curso-celeste {
+    background: rgba(79, 195, 247, .18);
+    box-shadow: inset 0 0 0 1.5px rgba(79, 195, 247, .6);
+    color: #bfe7fb;
+}
+
+.curso-curso-morado {
+    background: rgba(167, 139, 250, .18);
+    box-shadow: inset 0 0 0 1.5px rgba(167, 139, 250, .6);
+    color: #e2d8fd;
+}
+
+.curso-curso-rojo {
+    background: rgba(229, 72, 77, .2);
+    box-shadow: inset 0 0 0 1.5px rgba(229, 72, 77, .6);
+    color: #ffc9cb;
+}
+
+.curso-curso-naranja {
+    background: rgba(255, 152, 64, .18);
+    box-shadow: inset 0 0 0 1.5px rgba(255, 152, 64, .6);
+    color: #ffd9b8;
+}
+
+.curso-curso-durazno {
+    background: rgba(255, 186, 140, .16);
+    box-shadow: inset 0 0 0 1.5px rgba(255, 186, 140, .55);
+    color: #ffe4cd;
+}
+
+.residencia {
+    padding: .5rem;
+    background: rgba(255, 255, 255, .05);
+    color: var(--muted) !important;
+    font-family: var(--font-heading);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.horario-leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.4rem;
+    margin-top: 1.2rem;
+    color: var(--muted);
+    font-size: .74rem;
+}
+
+.horario-leyenda li {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+}
+
+.muestra-curso {
+    flex: 0 0 auto;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+}
+
+.muestra-gris {
+    background: rgba(160, 174, 178, .3);
+    box-shadow: inset 0 0 0 1.5px rgba(160, 174, 178, .7);
+}
+
+.muestra-celeste {
+    background: rgba(79, 195, 247, .3);
+    box-shadow: inset 0 0 0 1.5px rgba(79, 195, 247, .7);
+}
+
+.muestra-morado {
+    background: rgba(167, 139, 250, .3);
+    box-shadow: inset 0 0 0 1.5px rgba(167, 139, 250, .7);
+}
+
+.muestra-rojo {
+    background: rgba(229, 72, 77, .3);
+    box-shadow: inset 0 0 0 1.5px rgba(229, 72, 77, .7);
+}
+
+.muestra-naranja {
+    background: rgba(255, 152, 64, .3);
+    box-shadow: inset 0 0 0 1.5px rgba(255, 152, 64, .7);
+}
+
+.muestra-durazno {
+    background: rgba(255, 186, 140, .3);
+    box-shadow: inset 0 0 0 1.5px rgba(255, 186, 140, .7);
+}
+
+/* El horario dentro del estado romántico: mantiene su panel oscuro */
+
+.desbloqueado .horario-seccion {
+    padding: 2.5rem 0 4.5rem;
+}
+
+.desbloqueado .horario-cabecera h2 {
+    color: var(--vino-oscuro);
+}
+
+.desbloqueado .horario-cabecera p {
+    color: var(--tinta-suave);
+}
+
+.desbloqueado .horario-cabecera .etiqueta {
+    border-color: rgba(231, 84, 128, .3);
+    background: rgba(231, 84, 128, .1);
+    color: var(--vino);
+}
+
+.desbloqueado .horario-cabecera .etiqueta::before {
+    background: var(--rosa);
+    box-shadow: 0 0 8px rgba(231, 84, 128, .8);
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 640px) {
+    .hero-romantico {
+        padding: 3rem 0 2rem;
+    }
+
+    .aniversario {
+        max-width: 100%;
+        padding: .7rem 1rem;
+    }
+
+    .guirnalda {
+        gap: 1rem;
+    }
+
+    .frase-romantica {
+        margin: .9rem 1rem 0;
+    }
+
+    .lightbox {
+        padding: .6rem;
+    }
+
+    .lightbox-marco {
+        padding: 10px 10px 52px;
+    }
+
+    .lightbox-marco img {
+        max-height: 68vh;
+    }
+
+    .lightbox-flecha {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lightbox-prev {
+        left: .7rem;
+    }
+
+    .lightbox-next {
+        right: .7rem;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1.6rem .9rem;
+    }
+
+    .album-item {
+        padding: 9px 9px 52px;
+    }
+
+    .album-item figcaption {
+        font-size: .9rem;
+    }
+
+    .horario-tabla {
+        min-width: 700px;
+        font-size: .68rem;
+    }
+
+    .horario-leyenda {
+        gap: .4rem 1rem;
+        font-size: .7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .album-item,
+    .album-item img,
+    .corazones-fondo span,
+    .corazones-burst span {
+        animation: none !important;
+    }
+
+    .album-item {
+        transform: none;
+    }
+}

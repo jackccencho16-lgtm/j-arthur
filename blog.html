@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog de J. ARTHUR CCENCHO: álbum privado de fotografías protegido con contraseña.">
+    <meta name="theme-color" content="#0d0f0e">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Blog | J. ARTHUR CCENCHO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="mascota.css">
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+    <a class="salto-contenido" href="#contenido">Saltar al contenido</a>
+
+    <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="i-candado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.4"/>
+        </symbol>
+        <symbol id="i-flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+        </symbol>
+        <symbol id="i-cerrar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 6l12 12M18 6 6 18"/>
+        </symbol>
+        <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.6 9.2c.4 2.7 2.5 4.8 5.2 5.2l.9-1.4-1.7-.8-.8.8a6 6 0 0 1-2.2-2.2l.8-.8-.8-1.7-1.4.9Z"/>
+        </symbol>
+        <symbol id="i-arriba" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 15 6-6 6 6"/>
+        </symbol>
+    </svg>
+
+    <header class="header" id="header">
+        <div class="contenedor header-contenido">
+            <a href="index.html" class="marca" aria-label="J. ARTHUR CCENCHO, inicio">
+                <span class="marca-icono"><img src="perfil-jarthur.jpg" alt="J. Arthur Ccencho" width="24" height="24"></span>
+                <span class="marca-texto"><span class="marca-nombre">J. ARTHUR <span class="acento">CCENCHO</span></span><small>Ingeniería civil</small></span>
+            </a>
+            <nav class="nav" id="nav" aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="blog.html" class="activo">Blog</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="contenido" class="blog-pagina">
+        <section class="pagina-hero" id="hero-bloqueado">
+            <div class="contenedor">
+                <span class="etiqueta">Álbum privado</span>
+                <h1>Álbum de fotografías</h1>
+                <p>Colección privada de fotografías. Ingresa la palabra secreta para abrir el álbum y ver los recuerdos que guardamos.</p>
+            </div>
+        </section>
+
+        <section class="seccion" id="zona-acceso">
+            <div class="contenedor">
+                <div class="blog-acceso" id="acceso">
+                    <div class="blog-acceso-icono" aria-hidden="true"><svg><use href="#i-candado"></use></svg></div>
+                    <h2 class="blog-acceso-titulo">Contenido protegido</h2>
+                    <p class="blog-acceso-texto">Este álbum es privado y guarda recuerdos muy especiales.<br>Ingresa la palabra secreta para continuar.</p>
+                    <form id="form-acceso" novalidate>
+                        <div class="blog-campo">
+                            <label for="clave">Palabra secreta</label>
+                            <input type="password" id="clave" name="clave" autocomplete="off" placeholder="escribe la palabra secreta...">
+                            <span class="error" id="clave-error" role="alert"></span>
+                        </div>
+                        <button type="submit" class="blog-boton">Abrir el álbum <svg aria-hidden="true"><use href="#i-flecha"></use></svg></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-romantico" id="hero-romantico" hidden>
+            <div class="blog-hero-corazones" aria-hidden="true"><span>A</span><b>&#10084;</b><span>T</span></div>
+            <div class="contenedor">
+                <span class="etiqueta blog-etiqueta">Solo para nosotros</span>
+                <h1 class="blog-titulo"><span class="destello izq" aria-hidden="true">&#10022;</span> Nuestro Álbum de Amor <span class="destello der" aria-hidden="true">&#10022;</span></h1>
+                <p class="blog-dedicacion">Artur &amp; Tathi &#10084;</p>
+                <div class="aniversario" role="status">
+                    <span class="aniversario-corazon" aria-hidden="true">&#10084;</span>
+                    <div class="aniversario-texto">
+                        <strong>Nuestro aniversario: cada 12 del mes</strong>
+                        <span id="aniversario-mensaje">Celebramos nuestro amor una vez al mes</span>
+                    </div>
+                </div>
+                <p class="blog-subtexto">Aquí guardamos nuestros momentos, risas y recuerdos. Un pequeño universo hecho de fotografías, hecho con amor, mes a mes, desde el primer día.</p>
+                <p class="frase-romantica" id="frase-romantica"></p>
+            </div>
+            <div class="guirnalda" aria-hidden="true"><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span><span>&#10084;</span></div>
+        </section>
+
+        <section class="blog-seccion" id="zona-album" hidden>
+            <div class="contenedor">
+                <div class="blog-album" id="album">
+                    <div class="blog-album-cabecera">
+                        <span class="etiqueta blog-etiqueta">Nuestro rincón secreto</span>
+                        <h2 class="blog-titulo blog-titulo-mediano"><span class="corazon-latido" aria-hidden="true">&#10084;</span> Nuestros Momentos <span class="corazon-latido" aria-hidden="true">&#10084;</span></h2>
+                        <p class="blog-subtexto" id="album-nota">Artur &amp; Tathi · 10 recuerdos que atesoramos</p>
+                    </div>
+                    <div class="album-grid" id="album-grid"></div>
+                    <p class="firma-album">Gracias por cada momento, <span>Tathi</span> &#10084; <small>— Artur</small></p>
+                    <div class="blog-salir">
+                        <button id="btn-bloquear" class="blog-boton blog-boton-suave" type="button">Guardar y cerrar nuestro &aacute;lbum</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="horario-seccion" id="horario">
+            <div class="contenedor">
+                <div class="horario-cabecera">
+                    <span class="etiqueta">Mi horario de clases</span>
+                    <h2>Horario UNSCH · 2026 - II</h2>
+                    <p>Ingeniería Civil · Semestre académico 2026 - II. Cada color corresponde a un curso.</p>
+                </div>
+                <div class="horario-scroll">
+                    <table class="horario-tabla">
+                        <caption class="oculto">Horario de clases UNSCH 2026 - II, Ingeniería Civil</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="hora-col">Hora</th>
+                                <th scope="col">Lunes</th>
+                                <th scope="col">Martes</th>
+                                <th scope="col">Miércoles</th>
+                                <th scope="col">Jueves</th>
+                                <th scope="col">Viernes</th>
+                                <th scope="col">Sábado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">07 - 08</th>
+                                <td class="curso-curso-gris" rowspan="2"><span class="curso-sigla">IC-488</span><span class="curso-nombre">Gestión de Proyectos y Construcción (Teoría)</span><span class="curso-aula">A-208</span></td>
+                                <td class="curso-curso-celeste" rowspan="2"><span class="curso-sigla">IC-848</span><span class="curso-nombre">Ingeniería de Tránsito (Teoría)</span><span class="curso-aula">A-205</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">08 - 09</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">09 - 10</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="curso-curso-celeste" rowspan="2"><span class="curso-sigla">IC-848</span><span class="curso-nombre">Ingeniería de Tránsito (Práctica)</span><span class="curso-aula">A-205</span></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10 - 11</th>
+                                <td class="curso-curso-rojo" rowspan="2"><span class="curso-sigla">IC-392</span><span class="curso-nombre">Análisis Estructural I (Teoría)</span><span class="curso-aula">A-107</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">11 - 12</th>
+                                <td></td>
+                                <td></td>
+                                <td class="curso-curso-morado"><span class="curso-sigla">IC-583</span><span class="curso-nombre">Concreto Armado II (Práctica)</span><span class="curso-aula">A-207</span></td>
+                                <td></td>
+                                <td class="curso-curso-durazno" rowspan="2"><span class="curso-sigla">IC-582</span><span class="curso-nombre">Ingeniería Sismorresistente (Teoría)</span><span class="curso-aula">A-207</span></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">12 - 13</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="curso-curso-gris"><span class="curso-sigla">IC-488</span><span class="curso-nombre">Gestión de Proyectos y Construcción (Práctica)</span><span class="curso-aula">A-208</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">13 - 14</th>
+                                <td class="residencia" colspan="6">Residencia Universitaria</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">14 - 15</th>
+                                <td class="curso-curso-naranja"><span class="curso-sigla">IC-482</span><span class="curso-nombre">Geomática y Geodesia (Teoría)</span><span class="curso-aula">A-207</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">15 - 16</th>
+                                <td></td>
+                                <td></td>
+                                <td class="curso-curso-durazno"><span class="curso-sigla">IC-582</span><span class="curso-nombre">Ingeniería Sismorresistente (Práctica)</span><span class="curso-aula">A-207</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">16 - 17</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="curso-curso-naranja" rowspan="2"><span class="curso-sigla">IC-482</span><span class="curso-nombre">Geomática y Geodesia (Práctica)</span><span class="curso-aula">A-207</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17 - 18</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">18 - 19</th>
+                                <td class="curso-curso-durazno" rowspan="2"><span class="curso-sigla">IC-582</span><span class="curso-nombre">Ingeniería Sismorresistente (Teoría)</span><span class="curso-aula">A-207</span></td>
+                                <td></td>
+                                <td></td>
+                                <td class="curso-curso-morado" rowspan="2"><span class="curso-sigla">IC-583</span><span class="curso-nombre">Concreto Armado II (Teoría)</span><span class="curso-aula">A-207</span></td>
+                                <td class="curso-curso-rojo" rowspan="2"><span class="curso-sigla">IC-392</span><span class="curso-nombre">Análisis Estructural I (Práctica)</span><span class="curso-aula">A-107</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">19 - 20</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">20 - 21</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="horario-leyenda">
+                    <li><span class="muestra-curso muestra-gris"></span> Gestión de Proyectos y Construcción · IC-488</li>
+                    <li><span class="muestra-curso muestra-celeste"></span> Ingeniería de Tránsito · IC-848</li>
+                    <li><span class="muestra-curso muestra-morado"></span> Concreto Armado II · IC-583</li>
+                    <li><span class="muestra-curso muestra-rojo"></span> Análisis Estructural I · IC-392</li>
+                    <li><span class="muestra-curso muestra-naranja"></span> Geomática y Geodesia · IC-482</li>
+                    <li><span class="muestra-curso muestra-durazno"></span> Ingeniería Sismorresistente · IC-582</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="corazones-fondo" id="corazones-fondo" aria-hidden="true"></div>
+        <div class="corazones-burst" id="corazones-burst" aria-hidden="true"></div>
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Visor de fotografías">
+        <button class="lightbox-cerrar" id="lb-cerrar" type="button" aria-label="Cerrar visor">
+            <svg aria-hidden="true"><use href="#i-cerrar"></use></svg>
+        </button>
+        <button class="lightbox-flecha lightbox-prev" id="lb-prev" type="button" aria-label="Foto anterior">&#8249;</button>
+        <figure class="lightbox-marco">
+            <span class="lightbox-corazones" aria-hidden="true">&#10084; &#10084;</span>
+            <img id="lb-imagen" src="" alt="">
+            <figcaption id="lb-pie" class="lightbox-pie">Nuestro momento</figcaption>
+        </figure>
+        <button class="lightbox-flecha lightbox-next" id="lb-next" type="button" aria-label="Foto siguiente">&#8250;</button>
+    </div>
+
+    <footer class="footer">
+        <div class="contenedor footer-grid">
+            <div class="footer-marca">
+                <a href="index.html" class="marca" aria-label="J. ARTHUR CCENCHO, inicio">
+                    <span class="marca-icono"><img src="perfil-jarthur.jpg" alt="J. Arthur Ccencho" width="24" height="24"></span>
+                    <span class="marca-texto"><span class="marca-nombre">J. ARTHUR <span class="acento">CCENCHO</span></span><small>Ingeniería civil</small></span>
+                </a>
+                <p>Ingeniería civil y construcción con estándares de calidad, seguridad y transparencia técnica.</p>
+            </div>
+            <div>
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="servicios.html">Cimentaciones</a></li>
+                    <li><a href="servicios.html">Muros de retención</a></li>
+                    <li><a href="servicios.html">Pavimentos</a></li>
+                    <li><a href="servicios.html">Estructuras</a></li>
+                    <li><a href="panel-fotos.html">Panel fotográfico</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="tel:+51938352689">+51 938 352 689</a></li>
+                    <li><a href="mailto:jackcencho1234567855@gmail.com">jackcencho1234567855@gmail.com</a></li>
+                    <li><span>Lunes a sábado, de 8:00 am a 8:00 pm</span></li>
+                    <li><a href="panel-fotos.html">Panel fotográfico</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor footer-bajo">
+            <p>&copy; <span id="ano"></span> J. ARTHUR CCENCHO. Todos los derechos reservados.</p>
+            <p>Ingeniería civil de calidad para el futuro.</p>
+        </div>
+    </footer>
+
+    <a class="whatsapp" href="contacto.html" aria-label="Ir a la página de contacto">
+        <svg aria-hidden="true"><use href="#i-whatsapp"></use></svg>
+    </a>
+    <button class="arriba" id="arriba" type="button" aria-label="Volver arriba">
+        <svg aria-hidden="true"><use href="#i-arriba"></use></svg>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="blog.js"></script>
+    <script src="mascota-spider.js"></script>
+</body>
+</html>
