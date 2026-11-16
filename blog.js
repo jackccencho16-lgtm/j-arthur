@@ -186,6 +186,13 @@
         }, 2000);
     }
 
+    function precargarFotos() {
+        FOTOS.forEach(function (foto) {
+            var img = new Image();
+            img.src = foto.archivo;
+        });
+    }
+
     function desbloquear(silencioso) {
         acceso.hidden = true;
         if (heroBloqueado) {
@@ -203,6 +210,7 @@
         if (mainPagina) {
             mainPagina.classList.add("desbloqueado");
         }
+        precargarFotos();
         construirAlbum();
         crearCorazonesFondo();
         if (!silencioso) {
@@ -311,6 +319,9 @@
         }
 
         if (lightbox) {
+            lbImagen.addEventListener("load", function () {
+                lbImagen.style.opacity = "1";
+            });
             lbCerrar.addEventListener("click", cerrarVisor);
             lbPrev.addEventListener("click", function () { cambiarFoto(-1); });
             lbNext.addEventListener("click", function () { cambiarFoto(1); });

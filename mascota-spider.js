@@ -155,6 +155,14 @@
             "¡Hablemos de tu obra!"
         ];
 
+        const frasesRomanticas = [
+            "¡Te amo, Tathi! ♥",
+            "Artur y Tathi, para siempre ♥",
+            "El amor está en el aire… y en mi telaraña ♥",
+            "Cada 12 del mes celebramos nuestro amor ♥",
+            "¡Eres mi lugar favorito! ♥"
+        ];
+
         function limites() {
             const margen = window.innerWidth <= 820 ? 12 : 18;
             const cabecera = document.querySelector(".header");
@@ -256,7 +264,8 @@
                 return;
             }
 
-            burbujaSaludo.textContent = frasesSaludo[indiceSaludo % frasesSaludo.length];
+            const frasesActivas = document.querySelector(".blog-pagina.desbloqueado") ? frasesRomanticas : frasesSaludo;
+            burbujaSaludo.textContent = frasesActivas[indiceSaludo % frasesActivas.length];
             indiceSaludo += 1;
 
             mascota.classList.remove("mascota-spider--saluda");
