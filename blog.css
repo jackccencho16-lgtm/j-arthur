@@ -740,7 +740,7 @@
 .lightbox-marco img {
     display: block;
     max-width: min(92vw, 1200px);
-    max-height: calc(96vh - 60px);
+    max-height: calc(88vh - 60px);
     border-radius: 0;
     object-fit: contain;
     background: transparent;
@@ -748,16 +748,15 @@
 }
 
 .lightbox-pie {
-    position: absolute;
-    inset: auto 0 0 0;
-    padding: 2.2rem 1rem .9rem;
-    background: linear-gradient(transparent, rgba(40, 4, 14, .85));
-    color: #ffd9e6;
+    position: static;
+    padding: .9rem 1.2rem;
+    background: #ffffff;
+    color: var(--vino);
     font-family: "Dancing Script", cursive;
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    line-height: 1.25;
     text-align: center;
+    border-top: 1.5px solid rgba(231, 84, 128, .35);
 }
 
 .lightbox button {
@@ -1034,7 +1033,7 @@
     }
 
     .lightbox-marco img {
-        max-height: calc(88vh - 60px);
+        max-height: calc(80vh - 60px);
     }
 
     .lightbox-flecha {
