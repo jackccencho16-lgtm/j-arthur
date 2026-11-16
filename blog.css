@@ -860,6 +860,7 @@
     position: absolute;
     top: 50%;
     z-index: 3;
+    translate: 0 -50%;
     width: 46px;
     height: 46px;
     font-size: 1.8rem;
@@ -868,13 +869,13 @@
 }
 
 .lightbox-prev {
-    left: -10px;
-    transform: translate(-100%, -50%);
+    left: -18px;
+    translate: -100% -50%;
 }
 
 .lightbox-next {
-    right: -10px;
-    transform: translate(100%, -50%);
+    right: -18px;
+    translate: 100% -50%;
 }
 
 /* ============ HORARIO DE CLASES (visible sin contraseña) ============ */
@@ -1123,12 +1124,12 @@
 
     .lightbox-prev {
         left: .45rem;
-        transform: translateY(-50%);
+        translate: 0 -50%;
     }
 
     .lightbox-next {
         right: .45rem;
-        transform: translateY(-50%);
+        translate: 0 -50%;
     }
 
     .album-grid {
