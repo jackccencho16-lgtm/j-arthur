@@ -702,38 +702,89 @@
     justify-content: center;
     gap: .8rem;
     padding: 1.2rem;
-    background: rgba(72, 12, 30, .88);
+    background:
+        radial-gradient(760px 480px at 50% 12%, rgba(231, 84, 128, .26), transparent 60%),
+        radial-gradient(620px 420px at 85% 88%, rgba(255, 214, 224, .16), transparent 60%),
+        radial-gradient(520px 380px at 12% 90%, rgba(255, 190, 205, .14), transparent 60%),
+        rgba(72, 12, 30, .92);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
+}
+
+.lightbox::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(178, 58, 94, .05) 1px, transparent 1.4px),
+        radial-gradient(rgba(255, 255, 255, .75) 1px, transparent 1.4px);
+    background-size: 26px 26px, 17px 17px;
+    background-position: 0 0, 9px 13px;
+    pointer-events: none;
 }
 
 .lightbox[hidden] {
     display: none;
 }
 
+@keyframes aparecer-marco {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.97) rotate(-3deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(-1.2deg);
+    }
+}
+
 .lightbox-marco {
     position: relative;
     width: fit-content;
     max-width: min(92vw, 1100px);
-    padding: 1rem 1rem 0;
+    padding: 14px 14px 0;
     margin: 0;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #ffffff;
+    border-radius: 8px;
+    overflow: visible;
+    background: #fffdfb;
+    border: 1px solid rgba(231, 84, 128, .22);
     box-shadow:
         0 30px 80px rgba(20, 2, 8, .6),
         0 0 60px rgba(231, 84, 128, .25);
-    animation: aparecer .45s var(--ease, ease) both;
+    transform: rotate(-1.2deg);
+    animation: aparecer-marco .5s var(--ease) backwards;
+}
+
+.lightbox-marco::before {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    width: 104px;
+    height: 26px;
+    transform: translateX(-50%) rotate(-3deg);
+    background: linear-gradient(180deg, rgba(255, 214, 224, .9), rgba(231, 84, 128, .6));
+    border-radius: 2px;
+    box-shadow: 0 3px 8px rgba(178, 58, 94, .2);
+    opacity: .88;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.lightbox-marco:hover {
+    transform: rotate(-.4deg);
 }
 
 .lightbox-corazones {
     position: absolute;
-    top: -16px;
-    left: -20px;
+    top: -26px;
+    left: 50%;
+    transform: translateX(-50%);
     color: var(--rosa);
-    font-size: 1.4rem;
-    letter-spacing: .2rem;
-    transform: rotate(-12deg);
+    font-size: 1.25rem;
+    letter-spacing: .5rem;
+    animation: corazon-latir 1.8s ease-in-out infinite;
     text-shadow: 0 4px 12px rgba(194, 24, 91, .5);
     pointer-events: none;
 }
@@ -742,9 +793,10 @@
     display: block;
     max-width: calc(92vw - 2rem);
     margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(107, 29, 51, .12);
-    max-height: calc(82vh - 60px);
+    border: 6px solid #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 10px 26px rgba(178, 58, 94, .18);
+    max-height: calc(82vh - 92px);
     object-fit: contain;
     background: transparent;
     transition: opacity .35s ease;
@@ -752,14 +804,36 @@
 
 .lightbox-pie {
     position: static;
-    padding: .9rem 1.2rem;
-    background: #ffffff;
-    color: var(--vino);
+    width: 0;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 1.2rem 1.1rem;
+    background: linear-gradient(120deg, rgba(255, 214, 224, .55), rgba(255, 243, 239, .9));
+    color: var(--vino-oscuro);
     font-family: "Dancing Script", cursive;
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     font-weight: 700;
     text-align: center;
-    border-top: 1.5px solid rgba(231, 84, 128, .35);
+    border-top: 1.5px dashed rgba(231, 84, 128, .45);
+    border-radius: 0 0 8px 8px;
+    line-height: 1.35;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.lightbox-pie::before,
+.lightbox-pie::after {
+    color: var(--rosa);
+}
+
+.lightbox-pie::before {
+    content: "♥ ";
+    animation: corazon-latir 1.8s ease-in-out infinite;
+}
+
+.lightbox-pie::after {
+    content: " ♥";
+    animation: corazon-latir 1.8s ease-in-out 1.2s infinite;
 }
 
 .lightbox button {
@@ -768,7 +842,7 @@
     padding: 0;
     border: 1.5px solid rgba(231, 84, 128, .45);
     border-radius: 50%;
-    background: rgba(255, 249, 245, .92);
+    background: rgba(255, 247, 243, .95);
     color: var(--vino);
     cursor: pointer;
     transition: color .2s, background .2s, box-shadow .2s, transform .2s;
@@ -1042,12 +1116,12 @@
     }
 
     .lightbox-marco {
-        padding: .7rem .7rem 0;
+        padding: .8rem .8rem 0;
     }
 
     .lightbox-marco img {
-        max-width: calc(92vw - 1.4rem);
-        max-height: calc(76vh - 60px);
+        max-width: calc(92vw - 1.6rem);
+        max-height: calc(72vh - 96px);
     }
 
     .lightbox-flecha {
