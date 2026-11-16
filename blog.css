@@ -711,18 +711,6 @@
     backdrop-filter: blur(8px);
 }
 
-.lightbox::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-        radial-gradient(rgba(178, 58, 94, .05) 1px, transparent 1.4px),
-        radial-gradient(rgba(255, 255, 255, .75) 1px, transparent 1.4px);
-    background-size: 26px 26px, 17px 17px;
-    background-position: 0 0, 9px 13px;
-    pointer-events: none;
-}
-
 .lightbox[hidden] {
     display: none;
 }
@@ -871,7 +859,7 @@
 .lightbox-flecha {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    z-index: 3;
     width: 46px;
     height: 46px;
     font-size: 1.8rem;
@@ -880,11 +868,13 @@
 }
 
 .lightbox-prev {
-    left: 1.2rem;
+    left: -10px;
+    transform: translate(-100%, -50%);
 }
 
 .lightbox-next {
-    right: 1.2rem;
+    right: -10px;
+    transform: translate(100%, -50%);
 }
 
 /* ============ HORARIO DE CLASES (visible sin contraseña) ============ */
@@ -1132,11 +1122,13 @@
     }
 
     .lightbox-prev {
-        left: .7rem;
+        left: .45rem;
+        transform: translateY(-50%);
     }
 
     .lightbox-next {
-        right: .7rem;
+        right: .45rem;
+        transform: translateY(-50%);
     }
 
     .album-grid {
