@@ -156,10 +156,10 @@
         ];
 
         const frasesRomanticas = [
-            "¡Te amo, Tathi! ♥",
-            "Artur y Tathi, para siempre ♥",
+            "¡Te amo! ♥",
+            "A tu lado, soy feliz ♥",
             "El amor está en el aire… y en mi telaraña ♥",
-            "Cada 12 del mes celebramos nuestro amor ♥",
+            "Cada día contigo es un regalo ♥",
             "¡Eres mi lugar favorito! ♥"
         ];
 
