@@ -713,12 +713,13 @@
 
 .lightbox-marco {
     position: relative;
+    width: min(88vw, 980px);
     max-width: min(92vw, 1200px);
-    padding: 0;
+    padding: 1rem 1rem 0;
     margin: 0;
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
-    background: transparent;
+    background: #ffffff;
     box-shadow:
         0 30px 80px rgba(20, 2, 8, .6),
         0 0 60px rgba(231, 84, 128, .25);
@@ -739,9 +740,11 @@
 
 .lightbox-marco img {
     display: block;
-    max-width: min(92vw, 1200px);
-    max-height: calc(88vh - 60px);
-    border-radius: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(107, 29, 51, .12);
+    max-height: calc(82vh - 60px);
     object-fit: contain;
     background: transparent;
     transition: opacity .35s ease;
@@ -1039,11 +1042,11 @@
     }
 
     .lightbox-marco {
-        padding: 0;
+        padding: .7rem .7rem 0;
     }
 
     .lightbox-marco img {
-        max-height: calc(80vh - 60px);
+        max-height: calc(76vh - 60px);
     }
 
     .lightbox-flecha {
