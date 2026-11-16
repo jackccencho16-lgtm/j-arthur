@@ -623,8 +623,7 @@
 .album-item img {
     display: block;
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+    height: auto;
     border-radius: 2px;
     background: var(--crema-textura);
     transition: transform .5s var(--ease, ease);
@@ -740,7 +739,7 @@
 .lightbox-marco img {
     display: block;
     max-width: 100%;
-    max-height: 80vh;
+    max-height: calc(92vh - 110px);
     border-radius: 3px;
     object-fit: contain;
     background: var(--crema-textura);
@@ -995,29 +994,10 @@
     box-shadow: inset 0 0 0 1.5px rgba(255, 186, 140, .7);
 }
 
-/* El horario dentro del estado romántico: mantiene su panel oscuro */
+/* El horario queda solo en el Blog antes de la contraseña; al entrar se oculta */
 
 .desbloqueado .horario-seccion {
-    padding: 2.5rem 0 4.5rem;
-}
-
-.desbloqueado .horario-cabecera h2 {
-    color: var(--vino-oscuro);
-}
-
-.desbloqueado .horario-cabecera p {
-    color: var(--tinta-suave);
-}
-
-.desbloqueado .horario-cabecera .etiqueta {
-    border-color: rgba(231, 84, 128, .3);
-    background: rgba(231, 84, 128, .1);
-    color: var(--vino);
-}
-
-.desbloqueado .horario-cabecera .etiqueta::before {
-    background: var(--rosa);
-    box-shadow: 0 0 8px rgba(231, 84, 128, .8);
+    display: none;
 }
 
 /* --- Responsive --- */
@@ -1049,7 +1029,7 @@
     }
 
     .lightbox-marco img {
-        max-height: 68vh;
+        max-height: calc(88vh - 90px);
     }
 
     .lightbox-flecha {
