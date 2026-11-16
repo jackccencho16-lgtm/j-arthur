@@ -792,12 +792,22 @@
 }
 
 .lightbox-flecha {
-    flex: 0 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 46px;
     height: 46px;
     font-size: 1.8rem;
-    line-height: 1;
+    line-height: 1.2;
     padding-bottom: .3rem;
+}
+
+.lightbox-prev {
+    left: 1.2rem;
+}
+
+.lightbox-next {
+    right: 1.2rem;
 }
 
 /* ============ HORARIO DE CLASES (visible sin contraseña) ============ */
