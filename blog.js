@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    var HASH_VALIDO = "2ce143eb3c3af4dc63aeef462a9ced63004c5853616e453891e997f4da356ddc";
+    var HASH_VALIDO = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
     var CLAVE_SESION = "blog_acceso";
 
     var FOTOS = [
