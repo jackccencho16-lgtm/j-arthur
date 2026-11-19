@@ -14,7 +14,8 @@
         { archivo: "fotitos/7.jpeg", pie: "Nuestro domo de luces, un rinc\u00f3n que parece de cuento" },
         { archivo: "fotitos/8.jpeg", pie: "De la mano frente al agua, sellando otro mes de amor" },
         { archivo: "fotitos/9.jpeg", pie: "Contigo bajo el cielo y las nubes, mi vista favorita" },
-        { archivo: "fotitos/10.jpeg", pie: "Tu abrazo en la noche, mi lugar seguro en el mundo" }
+        { archivo: "fotitos/10.jpeg", pie: "Tu abrazo en la noche, mi lugar seguro en el mundo" },
+        { archivo: "fotitos/monkey.png", pie: "Nuestro monito travieso, sacándonos una sonrisa como siempre" }
     ];
 
     var FRASES = [
